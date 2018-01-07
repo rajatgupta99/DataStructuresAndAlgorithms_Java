@@ -1,28 +1,32 @@
 class BubbleSort{
-
-  public int[] sortBubble(int[] myList){
-      for(int i=0;i<myList.length-1;i++){
-        for(int j=0;j<myList.length-1;j++){
-          if(myList[j]>myList[j+1]){
-            int temp=myList[j];
-            myList[j]=myList[j+1];
-            myList[j+1]=temp;
+  
+  public void sort(int[] list){
+    
+      for(int i=0;i<list.length;i++){
+        for(int j=0;j<list.length-1;j++){
+          if(list[j]>list[j+1]){
+            int temp=list[j];
+            list[j]=list[j+1];
+            list[j+1]=temp;
           }
         }
       }
-    return myList;
+  }
+  
+  public void printList(int[] list){
+    for(int i=0;i<list.length;i++){
+      System.out.println(list[i]);
+    }
   }
 }
 
-public class Solution{
-
+class Solution{
+  
   public static void main(String s[]){
-    BubbleSort bs1=new BubbleSort();
-    int[] myArray={1,2,1,3,41,12,3,6,3,13,6,5,13,4,63,123,121,2,0,2,1,64,9};
-    bs1.sortBubble(myArray);
+    int[] myList={1,2,23,12,13,43,7,13,254,214,453,2342,11,313,54,896,587,964,12};
+    BubbleSort bb1=new BubbleSort();
     
-    for(int i=0;i<myArray.length;i++){
-      System.out.println(myArray[i]);
-    }
+    bb1.sort(myList);
+    bb1.printList(myList);
   }
 }

@@ -1,30 +1,29 @@
 class SelectionSort{
-
-  public int[] sortSelection(int[] myList){
-      for(int i=0;i<myList.length;i++){
-        int min=myList[i];
-        for(int j=i+1;j<myList.length;j++){
-          if(myList[j]<min){
-            int temp=myList[i];
-            min=myList[j];
-            myList[i]=myList[j];
-            myList[j]=temp;
+    
+  public void sort(int[] list){
+      for(int i=0;i<list.length-1;i++){
+        for(int j=i+1;j<list.length;j++){
+          if(list[i]>list[j]){
+            int temp=list[i];
+            list[i]=list[j];
+            list[j]=temp;
           }
         }
       }
-    return myList;
+  }
+  
+  public void printList(int[] list){
+    for(int i=0;i<list.length;i++){
+      System.out.println(list[i]);
+    }
   }
 }
 
-public class Solution{
-
+class Solution{
   public static void main(String s[]){
-    SelectionSort s1=new SelectionSort();
-    int[] myArray={1,2,1,3,41,12,3,6,3,13,6,5,13,4,63,123,121,2,0,2,1,64,9};
-    s1.sortSelection(myArray);
-    
-    for(int i=0;i<myArray.length;i++){
-      System.out.println(myArray[i]);
-    }
+    int[] myList={1,2,23,12,13,43,7,13,254,214,453,2342,11,313,54,896,587,964,12};
+    SelectionSort ss1=new SelectionSort();
+    ss1.sort(myList);
+    ss1.printList(myList);
   }
 }
